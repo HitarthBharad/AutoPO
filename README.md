@@ -48,7 +48,7 @@ This is a full-stack web application that enables users to upload purchase order
 Clone the repository:
 
 ```
-git clone https://github.com/yourusername/AutoPO.git
+git clone https://github.com/HitarthBharad/AutoPO.git
 cd AutoPO
 ```
 
@@ -61,6 +61,7 @@ npm install
 
 Create a .env file in the root of the project with the following variables:
 ```
+NODE_ENV="development"
 MONGODB_URI=your_mongodb_connection_uri
 MONGODB_DB=your_database_name
 ```
