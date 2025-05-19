@@ -5,6 +5,7 @@ This is a full-stack web application that enables users to upload purchase order
 ## Table of Contents
 
 - [Features](#features)
+- [Demo Video](#demo)
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
@@ -27,6 +28,10 @@ This is a full-stack web application that enables users to upload purchase order
 - Export processed data to CSV
 - Dashboard to view and manage all processed orders
 - View detailed breakdown of each order
+
+## Demo
+
+Video Link: https://www.loom.com/share/1411e4b3d4e94655a7c1844150ee7464?sid=32e80abd-74e9-481e-99bb-b51bf6e5b9b3
 
 ## Tech Stack
 
