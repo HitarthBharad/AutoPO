@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Purchase Order Processing Application
+
+This is a full-stack web application that enables users to upload purchase order (PO) PDF files, automatically process and extract line-item data, match them with product names, and manage the resulting purchase orders through a dashboard interface.
+
+## Table of Contents
+
+- [Features](#features)
+- [Demo Video](#demo)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+  - [Running the Application](#running-the-application)
+- [Application Routes](#application-routes)
+  - [Dashboard](#-dashboard)
+  - [PO Processing](#-process-po-processing)
+- [Usage Guide](#usage-guide)
+  - [Processing a Purchase Order](#processing-a-purchase-order)
+  - [Viewing and Managing Orders](#viewing-and-managing-orders)
+
+## Features
+
+- Upload and parse PO PDF files
+- Auto-extract line-item data including item name, quantity, unit price, and total amount
+- Automatically match items to product names
+- Allow users to edit processed data before submission
+- Export processed data to CSV
+- Dashboard to view and manage all processed orders
+- View detailed breakdown of each order
+
+## Demo
+
+Video Link: https://www.loom.com/share/1411e4b3d4e94655a7c1844150ee7464?sid=32e80abd-74e9-481e-99bb-b51bf6e5b9b3
+
+## Tech Stack
+
+- **Frontend**: Next.js (App Router), Tailwind CSS, ShadCN UI
+- **Backend**: Next.js API Routes
+- **Database**: MongoDB
+- **PDF Parsing & Matching**: Custom logic integrated in API route (details omitted here)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js (v18 or later)
+- npm or yarn
+- MongoDB (local or Atlas)
+
+### Installation
+
+Clone the repository:
+
+```
+git clone https://github.com/HitarthBharad/AutoPO.git
+cd AutoPO
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies:
+```
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a .env file in the root of the project with the following variables:
+```
+NODE_ENV="development"
+MONGODB_URI=your_mongodb_connection_uri
+MONGODB_DB=your_database_name
+```
 
-## Learn More
+Replace your_mongodb_connection_uri and your_database_name with your actual credentials.
 
-To learn more about Next.js, take a look at the following resources:
+### Running the Application
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Start the development server:
+```
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Application Routes
 
-## Deploy on Vercel
+### Dashboard
+	•	Displays a list of all previously processed purchase orders.
+	•	Users can:
+	•	View summary of each order
+	•	Open detailed dialog showing line items and matched products
+	•	View match status for each line item
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### PO Processing
+	•	Upload interface for PDF-based purchase orders.
+	•	On upload:
+	•	File is parsed and line items are extracted
+	•	Matching products are fetched based on item names
+	•	Users can:
+	•	Edit the parsed data before submission
+	•	Submit the finalized data to create a new purchase order
+	•	Download the processed data in CSV format
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Usage Guide
+
+### Viewing and Managing Orders
+	1.	Navigate to /
+	2.	The dashboard will show all processed orders
+	3.	Click View on any row to open a detailed dialog
+	4.	Dialog shows:
+	•	Order metadata (e.g., order number, date)
+	•	Table of line items, their quantities, pricing, and matched products
+	•	Match status icon indicating success or failure
+
+### Processing a Purchase Order
+	1.	Navigate to /process
+	2.	Upload a PO PDF file using the file upload component
+	3.	The app will:
+	•	Parse the file
+	•	Display a table of extracted line items
+	•	Attempt to match each item to an existing product
+	4.	Edit any fields if required
+	5.	Click Submit to save the processed order
+	6.	Optionally, click Download CSV to export the data
+
